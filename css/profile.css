@@ -1,0 +1,208 @@
+body {
+    background-image: url(../img/food.png);
+}
+
+.wrapperForm {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.mainForm {
+    max-width: 500px;
+    border: 7px double #AC794D;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.22), 0 19px 60px rgba(0, 0, 0, 0.3);
+    background-image: url(../img/food.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    background-color: #27AAE1;
+    position: relative;
+}
+
+/* === Инпуты формы === */
+.contact_form input:focus {
+    outline: none;
+}
+
+/* === Шрифты для формы === */
+.contact_form h2, .contact_form label {
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+.form_hint, .required_notification {
+    font-size: 13px;
+}
+
+/* === Основной список === */
+.contact_form ul {
+    width: 750px;
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0px;
+    padding: 0px;
+}
+
+.contact_form li {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.contact_form li:first-child, .contact_form li:last-child {
+    border-bottom: 1px solid #777;
+}
+
+/* === Хэдеры === */
+.contact_form h2 {
+    margin: 0;
+    display: inline;
+}
+
+.required_notification {
+    color: #d45252;
+    margin: 5px 0 0 0;
+    display: inline;
+    float: right;
+}
+
+/* === Лэйблы === */
+.contact_form label {
+    width: 150px;
+    margin-top: 3px;
+    display: block;
+    float: left;
+    padding: 3px;
+    color: #000;
+}
+
+.contact_form input {
+    height: 20px;
+    width: 220px;
+    padding: 5px 8px;
+}
+
+.contact_form button {
+    margin-left: 156px;
+}
+
+/* Стили для инпутов */
+.contact_form input {
+    border: 1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius: 2px;
+    padding-right: 30px;
+    -moz-transition: padding .25s;
+    -webkit-transition: padding .25s;
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+
+.contact_form input:focus {
+    background: #fff;
+    border: 1px solid #555;
+    box-shadow: 0 0 3px #aaa;
+    padding-right: 70px;
+}
+
+/* === Стили для валидации === */
+.contact_form input:required:valid {
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+
+.contact_form input:focus:invalid {
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+/* === Кнопки === */
+.done {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #F04E10 inset, 0 0 0 0 #F04E10;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: .15s ease-in-out;
+    margin-left: 155px;
+    margin-bottom: 7px;
+    margin-top: 7px;
+    cursor: pointer;
+}
+
+.done:hover {
+    box-shadow: 0 0 10px 0 #F04E10 inset, 0 0 10px 4px #F04E10;
+    color: #F04E10;
+}
+
+.errorSpan {
+    color: red;
+    width: 300px;
+    margin-left: 160px;
+}
+
+#errorNik {
+    display: none;
+}
+
+#errorMail {
+    display: none;
+}
+
+#errorPhone {
+    display: none;
+}
+
+.contact_form h2 {
+    display: block;
+    margin: 0 auto;
+    width: 550px;
+}
+
+.mainFotoProfile {
+    width: 150px;
+    height: 150px;
+    background: #65C6C8;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+
+.container {
+    width: 90%;
+    height: 90%;
+    border: 3px solid #FED280;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.container img {
+    max-width: none;
+    min-width: auto;
+    min-height: auto;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cup</title>
+    <link rel="stylesheet" href="css/styles.css" type="text/css"/>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+</head>
+<body id="mainScreen" onload="indexRun()">
+<div id="wrapper"></div>
+<!-- Панель предложения -->
+<div id="mainWindow" class="main-window">
+    <div class="sentence" id="cupSentence">
+        <p>Хочешь чашку?</p>
+        <div id="cupButton1">Давай</div>
+    </div>
+</div>
+<!-- Форма регистрации -->
+<input id="forFormBlock" type="checkbox" hidden>
+<div class="modal-wrap" aria-hidden="true" role="dialog">
+    <div id="formBlock">
+        <div id="errorBlock" class="error">
+            <p id="errorBlockItm"></p>
+            <p id="errorBlockItm2"></p>
+            <p id="errorBlockItm3"></p>
+        </div>
+        <form id="enterForm" class="contact_form" action="#" method="post" name="contact_form_toEnter">
+            <ul>
+                <li>
+                    <h2>Для создания чашки войдите в свой аккаунт</h2>
+                    <span class="required_notification">* Поля, обязательные для заполнения</span>
+                </li>
+                <li>
+                    <label for="email">Email:</label>
+                    <input id="emailToAccount" type="email" name="email" placeholder="john_doe@example.com"
+                           onblur="checkEmail()" required/>
+                    <span class="form_hint">Введите корректный e-mail</span>
+                </li>
+                <li>
+                    <label for="password">Пароль:</label>
+                    <input id="passToAccount" type="password" name="password" placeholder="" onblur="checkPassword()"
+                           required/>
+                    <span class="form_hint">Введите пароль</span>
+                </li>
+                <li>
+                    <div id="enterToAccount" class="submit">Войти</div>
+                </li>
+                <li>
+                    <p>Или войдите с помощью других сервисов</p>
+                    <a class="social" href="https://uk-ua.facebook.com/"><span class="facebook"></span></a>
+                    <a class="social" href="https://vk.com/"><span class="vk"></span></a>
+                    <a class="social" href="https://twitter.com/?lang=ru"><span class="twitt"></span></a>
+                    <a class="social" href="https://github.com/"><span class="git"></span></a>
+                    <a class="social" href="https://www.instagram.com/?hl=ru"><span class="inst"></span></a>
+                    <a class="social" href="https://plus.google.com/"><span class="google"></span></a>
+
+                </li>
+                <li>
+                    <p>Ещё нет аккаунта? <span id="registr" onclick="toRegistr()">Зарегистрируйтесь</span></p>
+                </li>
+            </ul>
+        </form>
+        <form id="registrForm" class="contact_form" action="#" method="post" name="contact_form_toRegistr">
+            <ul>
+                <li>
+                    <h2>Регистрация</h2>
+                    <span class="required_notification">* Поля, обязательные для заполнения</span>
+                </li>
+                <li>
+                    <p>С помощью сервиса</p>
+                    <a class="social" href="https://uk-ua.facebook.com/"><span class="facebook"></span></a>
+                    <a class="social" href="https://vk.com/"><span class="vk"></span></a>
+                    <a class="social" href="https://twitter.com/?lang=ru"><span class="twitt"></span></a>
+                    <a class="social" href="https://github.com/"><span class="git"></span></a>
+                    <a class="social" href="https://www.instagram.com/?hl=ru"><span class="inst"></span></a>
+                    <a class="social" href="https://plus.google.com/"><span class="google"></span></a>
+                </li>
+                <li>
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" name="inputRegistr" placeholder="john_doe@example.com"
+                           onblur="validInput()" required/>
+                    <span class="form_hint">Введите корректный e-mail</span>
+                </li>
+                <li>
+                    <label for="password">Никнейм:</label>
+                    <input id="nikId" type="text" name="inputRegistr" placeholder="" required onblur="validInput()"
+                           maxlength="25">
+                    <span class="form_hint">Только буквы (A-Z a-z) и цифры (0-9), не меньше 3 и не больше 25 символов</span>
+                </li>
+                <li>
+                    <label for="password">Пароль:</label>
+                    <input id="passId" type="password" name="inputRegistr" placeholder="" onblur="validInput()" required
+                           maxlength="15"/>
+                    <span class="form_hint">От 8 до 15 символов латинского алфавита с минимум одной цифрой, одной заглавной и одной строчной буквой</span>
+                </li>
+                <li>
+                    <label for="password">Пароль ещё раз:</label>
+                    <input id="passId2" type="password" name="inputRegistr" placeholder="" onblur="validPass2Input()"
+                           required/>
+                    <span class="form_hint">Повторите пароль</span>
+                </li>
+                <li>
+                    <div id="zaregistr" class="submit">Зарегистрироваться</div>
+                </li>
+
+                <li>
+                    <p>Уже зарегистрированы? <span id="enterToForm">Войдите</span></p>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+<!-- Финальное окно вывода готовой чашки -->
+<input id="finalWindMove" type="checkbox" hidden>
+<div class="finalWind">
+    <p class="finalWind-header">А вот и Ваша чашка</p>
+    <div class="podkladka">
+        <p> Материал:&nbsp;&nbsp;&nbsp;<span id="mat"></span></p>
+        <p> Объём:&nbsp;&nbsp;&nbsp;<span id="val"></span></p>
+        <p> Высота:&nbsp;&nbsp;&nbsp;<span id="hig"></span></p>
+        <p> Тематика декора, рисунка:&nbsp;&nbsp;&nbsp;<span id="tema"></span></p>
+        <p> Страна производитель:&nbsp;&nbsp;&nbsp;<span id="coun"></span></p>
+        <p> Цена:&nbsp;&nbsp;&nbsp;<span id="prc"></span></p>
+    </div>
+    <div class="foto-block-final">
+        <img id="fotoFinal" src="" alt="">
+    </div>
+    <div id="cupButtonFinal">К чашкам</div>
+    <div id="goToMainWind" class="restart" href="">На главную</div>
+</div>
+<!-- Обложка для кнопки "ещё чашку" -->
+<div id="buttonCover"></div>
+<!-- Панель пользрвателя -->
+<div id="userBlock">
+    <p class="count">Колличество посетителей<span id="round"></span></p>
+    <p id="greetings"></p>
+    <div class="rightSide">
+        <p id="profileBtn">Профиль</p>
+        <p id="exitBtn">Выйти</p>
+    </div>
+</div>
+<script src="js/script.js" defer=""></script>
+</body>
+</html>

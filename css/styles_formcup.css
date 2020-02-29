@@ -1,0 +1,276 @@
+body {
+    background-image: url(../img/food.png);
+}
+
+.wrapperForm {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.mainForm {
+    max-width: 750px;
+    border: 7px double #AC794D;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.22), 0 19px 60px rgba(0, 0, 0, 0.3);
+    background-image: url(../img/2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* === Инпуты формы === */
+.contact_form input:focus {
+    outline: none;
+}
+
+/* === Шрифты для формы === */
+.contact_form h2, .contact_form label {
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+.form_hint, .required_notification {
+    font-size: 13px;
+}
+
+/* === Основной список === */
+.contact_form ul {
+    width: 750px;
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0px;
+    padding: 0px;
+}
+
+.contact_form li {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.contact_form li:first-child, .contact_form li:last-child {
+    border-bottom: 1px solid #777;
+}
+
+/* === Хэдеры === */
+.contact_form h2 {
+    margin: 0;
+    display: inline;
+}
+
+.required_notification {
+    color: #d45252;
+    margin: 5px 0 0 0;
+    display: inline;
+    float: right;
+}
+
+/* === Лэйблы === */
+.contact_form label {
+    width: 150px;
+    margin-top: 3px;
+    display: inline-block;
+    float: left;
+    padding: 3px;
+}
+
+.contact_form input {
+    height: 20px;
+    width: 220px;
+    padding: 5px 8px;
+}
+
+.contact_form button {
+    margin-left: 156px;
+}
+
+/* Стили для инпутов */
+.contact_form input {
+    border: 1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius: 2px;
+    padding-right: 30px;
+    -moz-transition: padding .25s;
+    -webkit-transition: padding .25s;
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+
+.contact_form input:focus {
+    background: #fff;
+    border: 1px solid #555;
+    box-shadow: 0 0 3px #aaa;
+    padding-right: 70px;
+}
+
+/* === Стили для валидации === */
+.contact_form input:required {
+    background: #fff url(../img/red_asterisk.png) no-repeat 98% center;
+}
+
+.contact_form input:required:valid {
+    background: #fff url(../img/valid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+
+.contact_form input:focus:invalid {
+    background: #fff url(../img/invalid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+/* === Всплывающая подсказка === */
+.form_hint {
+    background: #d45252;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    margin-left: 8px;
+    padding: 1px 6px;
+    z-index: 999; /* hints stay above all other elements */
+    position: absolute; /* allows proper formatting if hint is two lines */
+    display: none;
+}
+
+.form_hint::before {
+    content: "\25C0";
+    color: #d45252;
+    position: absolute;
+    top: 1px;
+    left: -6px;
+}
+
+.contact_form input:focus + .form_hint {
+    display: inline;
+}
+
+.contact_form input:required:valid + .form_hint {
+    background: #28921f;
+}
+
+.contact_form input:required:valid + .form_hint::before {
+    color: #28921f;
+}
+
+/* === Кнопки === */
+.done {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #97C01C inset, 0 0 0 0 #97C01C;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: .15s ease-in-out;
+    margin-left: 155px;
+    cursor: pointer;
+}
+
+.done:hover {
+    box-shadow: 0 0 10px 0 #97C01C inset, 0 0 10px 4px #97C01C;
+    color: #97C01C;
+}
+
+.restart {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #F04E10 inset, 0 0 0 0 #F04E10;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: .15s ease-in-out;
+    margin-left: 50px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.restart:hover {
+    box-shadow: 0 0 10px 0 #F04E10 inset, 0 0 10px 4px #F04E10;
+    color: #F04E10;
+}
+
+/*==================Окно некорректного ввода данных==================*/
+.crashData {
+    width: 325px;
+    height: 325px;
+    position: absolute;
+    left: 50%;
+    top: -100%;
+    transform: translate(-50%, -500%);
+    transition: transform 0.4s ease-out;
+    border: 7px double #F04E10;
+    border-radius: 10px;
+    background-image: url(../img/3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.modal-wrap:before {
+    content: "";
+    display: none;
+    background: rgba(0, 0, 0, .7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+#crashCup:checked ~ .modal-wrap .crashData {
+    transform: translate(-50%, 0);
+    top: 10%;
+}
+
+#crashCup:checked ~ .modal-wrap:before {
+    display: block;
+}
+
+.crashData p {
+    text-align: center;
+    color: #E82A36;
+    letter-spacing: 2px;
+    font-family: Oswald, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    text-shadow: rgba(255, 255, 255, .5) 1px 1px, rgba(100, 100, 100, .3) 3px 7px 3px;
+}
+
+.restart2 {
+    text-decoration: none;
+    outline: none;
+    display: block;
+    width: 60px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px #F04E10 inset, 0 0 0 0 #F04E10;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: .15s ease-in-out;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+.restart2:hover {
+    box-shadow: 0 0 10px 0 #F04E10 inset, 0 0 10px 4px #F04E10;
+    color: #b03535;
+}
